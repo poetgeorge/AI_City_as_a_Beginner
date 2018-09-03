@@ -1,0 +1,15 @@
+[
+{
+"rid" : "1",
+"beginPoint" : "1",
+"endPoint" : "2",
+"length" : "12.0"
+},
+
+{
+"rid" : "2",
+"beginPoint" : "2",
+"endPoint" : "3",
+"length" : "15.5"
+}
+]
