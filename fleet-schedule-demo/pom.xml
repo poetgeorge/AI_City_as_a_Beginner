@@ -5,6 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>data-cache</module>
+        <module>data-cache-service</module>
+        <module>schedule-service</module>
     </modules>
 
     <parent>

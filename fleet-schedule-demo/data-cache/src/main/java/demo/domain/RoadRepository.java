@@ -1,6 +1,6 @@
 package demo.domain;
 
-//道路DAO
+//道路数据CRUD
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

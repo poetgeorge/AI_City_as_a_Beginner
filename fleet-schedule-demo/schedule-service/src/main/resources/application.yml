@@ -1,0 +1,13 @@
+server:
+  port: 9006
+spring:
+  application:
+    name: schedule-service
+
+data:
+  cache: http://localhost:9005
+
+basic:
+  data: http://localhost:9000
+
+

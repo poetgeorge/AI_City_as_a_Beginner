@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>basic-data-service</artifactId>
-    <name>basic-data-service</name>
-    <description>basic data management in database</description>
+    <artifactId>data-cache-service</artifactId>
+    <name>data-cache-service</name>
+    <description>data cache in memory</description>
 
     <properties>
-        <start-class>demo.BasicDataApplication</start-class>
+        <start-class>demo.DataCacheApplication</start-class>
     </properties>
 
     <dependencies>
@@ -46,11 +46,11 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<scope>runtime</scope>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -76,7 +76,5 @@
             </plugin>
         </plugins>
     </build>
-
-
 
 </project>

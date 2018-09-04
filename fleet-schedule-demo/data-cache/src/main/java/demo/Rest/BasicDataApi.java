@@ -1,7 +1,9 @@
 package demo.Rest;
 
+import demo.Service.PointService;
 import demo.Service.RoadService;
 import demo.Service.VehicleService;
+import demo.domain.Point;
 import demo.domain.Road;
 import demo.domain.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +14,25 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
-public class DataCacheApi {
+public class BasicDataApi {
 
     private RoadService roadService;
     private VehicleService vehicleService;
+    private PointService pointService;
 
     @Autowired
-    public DataCacheApi(RoadService roadService, VehicleService vehicleService){
+    public BasicDataApi(RoadService roadService, VehicleService vehicleService, PointService pointService){
         this.roadService = roadService;
         this.vehicleService = vehicleService;
+        this.pointService = pointService;
+    }
+
+    @RequestMapping(value = "/point", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void uploadpoints(@RequestBody List<Point> points){
+        this.pointService.savePoints(points);
     }
 
     @RequestMapping(value = "/road", method = RequestMethod.POST)
@@ -46,6 +57,11 @@ public class DataCacheApi {
         this.vehicleService.deleteAll();
     }
 
+    @RequestMapping(value = "/purge/point", method = RequestMethod.POST)
+    public void purgepoints(){
+        this.pointService.deleteAll();
+    }
+
     @RequestMapping(value = "/road/{beginPoint}", method = RequestMethod.GET)
     public Page<Road> findByBeginPoint(@PathVariable String beginPoint, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
         return this.roadService.findByBeginPoint(Integer.parseInt(beginPoint), new PageRequest(page,size));
@@ -59,6 +75,11 @@ public class DataCacheApi {
     @RequestMapping(value = "road/{beginPoint}/{endPoint}", method = RequestMethod.GET)
     public Page<Road> findByBeginPointAndEndPoint(@PathVariable String beginPoint,@PathVariable String endPoint, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
         return this.roadService.findByBeginPointAndEndPoint(Integer.parseInt(beginPoint), Integer.parseInt(endPoint), new PageRequest(page,size));
+    }
+
+    @RequestMapping(value = "/point/{pName}", method = RequestMethod.GET)
+    public Page<Point> findByPName(@PathVariable String pName, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
+        return this.pointService.findByPName(pName, new PageRequest(page,size));
     }
 
     @RequestMapping(value = "/vehicle/{license}", method = RequestMethod.GET)

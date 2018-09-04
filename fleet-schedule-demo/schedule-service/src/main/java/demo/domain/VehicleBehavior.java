@@ -1,13 +1,15 @@
 package demo.domain;
 
-//道路数据
+//车辆行为记录
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,17 +17,17 @@ import javax.persistence.Table;
 @Data
 @AllArgsConstructor
 @Entity
-//对应数据库中表名"ROAD"
-@Table(name = "ROAD")
+@Table(name = "VEHICLE_BEHAVIOR")
 @RequiredArgsConstructor
-public class Road {
+public class VehicleBehavior {
 
     @Id
-    private Long rid;  //道路编号
+    @GeneratedValue
+    private Long bhid; //记录编号
 
-    private int beginPoint; //起点编号
-    private int endPoint;  //终点编号
-    private double distance;  //道路长度
-    private double curNumPoint; //加入该道路后总地点数
+    private int vid; //车辆编号
+    private int startPoint; //出发地编号
+    private int endPoint;  //到达地编号
+    private double mileage;  //行驶里程
 
 }
