@@ -52,6 +52,12 @@
         </dependency>
         <dependency>
             <groupId>edu.tongji</groupId>
+            <artifactId>data-cache-service</artifactId>
+            <version>1.0.0.BUILD-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>edu.tongji</groupId>
             <artifactId>basic-data-service</artifactId>
             <version>1.0.0.BUILD-SNAPSHOT</version>
             <scope>compile</scope>

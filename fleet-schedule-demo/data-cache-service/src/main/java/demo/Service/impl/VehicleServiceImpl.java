@@ -4,8 +4,6 @@ import demo.Service.VehicleService;
 import demo.domain.Vehicle;
 import demo.domain.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,12 +44,17 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public List<Vehicle> findByLocationForwardPoint(int forwardPoint) {
+    public List<Vehicle> findByLocationForwardPoint(Long forwardPoint) {
         return this.vehicleRepository.findByLocationForwardPoint(forwardPoint);
     }
 
     @Override
-    public List<Vehicle> findByLocationBackwardPoint(int backwardPoint) {
+    public List<Vehicle> findByLocationBackwardPoint(Long backwardPoint) {
         return this.vehicleRepository.findByLocationBackwardPoint(backwardPoint);
+    }
+
+    @Override
+    public List<Vehicle> findAll() {
+        return this.vehicleRepository.findAll();
     }
 }

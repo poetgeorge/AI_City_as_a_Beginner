@@ -7,7 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
@@ -21,12 +24,14 @@ public class Vehicle {
     @Id
     private Long vid;  //车辆编号
 
-    private char license; //车牌号
-    private boolean isEmpty = true;  //是否空闲
+    private String license; //车牌号
 
-    @Embedded
-    private Location location;  //车辆位置，自定义类
 
-    private int Destination;  //车辆目的地点编号
+//    private boolean isEmpty = true;  //是否空闲
+//
+//    @Embedded
+//    private Location location;  //车辆位置，自定义类
+//
+//    private int Destination;  //车辆目的地点编号
 
 }

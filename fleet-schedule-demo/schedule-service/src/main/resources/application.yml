@@ -6,8 +6,9 @@ spring:
 
 data:
   cache: http://localhost:9005
+---
 
 basic:
   data: http://localhost:9000
-
+---
 

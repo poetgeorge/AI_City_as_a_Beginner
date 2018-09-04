@@ -47,6 +47,21 @@ public class BasicDataApi {
         this.vehicleService.saveVehicles(vehicles);
     }
 
+    @RequestMapping(value = "/roadfind", method = RequestMethod.GET)
+    public List<Road> findAllRoads(){
+        return this.roadService.findAll();
+    }
+
+    @RequestMapping(value = "/pointfind", method = RequestMethod.GET)
+    public List<Point> findAllPoints(){
+        return this.pointService.findAll();
+    }
+
+    @RequestMapping(value = "/vehiclefind", method = RequestMethod.GET)
+    public List<Vehicle> findAllVehicles(){
+        return this.vehicleService.findAll();
+    }
+
     @RequestMapping(value = "/purge/road", method = RequestMethod.POST)
     public void purgeroads(){
         this.roadService.deleteAll();
@@ -64,17 +79,17 @@ public class BasicDataApi {
 
     @RequestMapping(value = "/road/{beginPoint}", method = RequestMethod.GET)
     public Page<Road> findByBeginPoint(@PathVariable String beginPoint, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
-        return this.roadService.findByBeginPoint(Integer.parseInt(beginPoint), new PageRequest(page,size));
+        return this.roadService.findByBeginPoint(Long.parseLong(beginPoint), new PageRequest(page,size));
     }
 
     @RequestMapping(value = "/road/{endPoint}", method = RequestMethod.GET)
     public Page<Road> findByEndPoint(@PathVariable String endPoint, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
-        return this.roadService.findByEndPoint(Integer.parseInt(endPoint), new PageRequest(page,size));
+        return this.roadService.findByEndPoint(Long.parseLong(endPoint), new PageRequest(page,size));
     }
 
-    @RequestMapping(value = "road/{beginPoint}/{endPoint}", method = RequestMethod.GET)
+    @RequestMapping(value = "/road2/{beginPoint}/{endPoint}", method = RequestMethod.GET)
     public Page<Road> findByBeginPointAndEndPoint(@PathVariable String beginPoint,@PathVariable String endPoint, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
-        return this.roadService.findByBeginPointAndEndPoint(Integer.parseInt(beginPoint), Integer.parseInt(endPoint), new PageRequest(page,size));
+        return this.roadService.findByBeginPointAndEndPoint(Long.parseLong(beginPoint), Long.parseLong(endPoint), new PageRequest(page,size));
     }
 
     @RequestMapping(value = "/point/{pName}", method = RequestMethod.GET)
@@ -87,19 +102,19 @@ public class BasicDataApi {
         return this.vehicleService.findByLicense(license, new PageRequest(page,size));
     }
 
-    @RequestMapping(value = "/vehicle/{isEmpty}", method = RequestMethod.GET)
-    public Page<Vehicle> findByIsEmpty(@PathVariable String isEmpty, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
-        return this.vehicleService.findByIsEmpty(Boolean.parseBoolean(isEmpty), new PageRequest(page,size));
-    }
-
-    @RequestMapping(value = "/vehicle/{forwardPoint}", method = RequestMethod.GET)
-    public Page<Vehicle> findByForwardPoint(@PathVariable String forwardPoint,  @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
-        return this.vehicleService.findByLocationForwardPoint(Integer.parseInt(forwardPoint),new PageRequest(page,size));
-    }
-
-    @RequestMapping(value = "/vehicle/{backwardPoint}", method = RequestMethod.GET)
-    public Page<Vehicle> findByBackwardPoint(@PathVariable String backwardPoint,  @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
-        return this.vehicleService.findByLocationBackwardPoint(Integer.parseInt(backwardPoint),new PageRequest(page,size));
-    }
+//    @RequestMapping(value = "/vehicle/{isEmpty}", method = RequestMethod.GET)
+//    public Page<Vehicle> findByIsEmpty(@PathVariable String isEmpty, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
+//        return this.vehicleService.findByIsEmpty(Boolean.parseBoolean(isEmpty), new PageRequest(page,size));
+//    }
+//
+//    @RequestMapping(value = "/vehicle/{forwardPoint}", method = RequestMethod.GET)
+//    public Page<Vehicle> findByForwardPoint(@PathVariable String forwardPoint,  @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
+//        return this.vehicleService.findByLocationForwardPoint(Long.parseLong(forwardPoint),new PageRequest(page,size));
+//    }
+//
+//    @RequestMapping(value = "/vehicle/{backwardPoint}", method = RequestMethod.GET)
+//    public Page<Vehicle> findByBackwardPoint(@PathVariable String backwardPoint,  @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
+//        return this.vehicleService.findByLocationBackwardPoint(Long.parseLong(backwardPoint),new PageRequest(page,size));
+//    }
 
 }

@@ -12,8 +12,9 @@ public interface RoadService {
 
     List<Road> saveRoads(List<Road> roads);
     void deleteAll();
-    Page<Road> findByBeginPoint(int beginPoint, Pageable pageable);
-    Page<Road> findByEndPoint(int endPoint, Pageable pageable);
-    Page<Road> findByBeginPointAndEndPoint(int beginPoint, int endPoint, Pageable pageable);
+    List<Road> findAll();
+    Page<Road> findByBeginPoint(Long beginPoint, Pageable pageable);
+    Page<Road> findByEndPoint(Long endPoint, Pageable pageable);
+    Page<Road> findByBeginPointAndEndPoint(Long beginPoint, Long endPoint, Pageable pageable);
 
 }

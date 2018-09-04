@@ -2,6 +2,9 @@ package demo.domain;
 
 //地图类
 
+import lombok.Data;
+
+@Data
 public class Graph {
 
     private double[][] m; //邻接矩阵
@@ -9,7 +12,7 @@ public class Graph {
     //private Road[] road;  //道路集合
     private int numPoint;  //地点数
     private final int MAX=Integer.MAX_VALUE;  //最大值，用于代表此路不通
-    private int[][] allpath;  //allpath[i][j] 为 第i个顶点的前驱顶点数组。即，allpath[i][j]的值是"顶点i"到"顶点j"的最短路径所经历的全部顶点中，位于"顶点j"之前的那个顶点
+    private int [][] allpath;  //allpath[i][j] 为 第i个顶点的前驱顶点数组。即，allpath[i][j]的值是"顶点i"到"顶点j"的最短路径所经历的全部顶点中，位于"顶点j"之前的那个顶点
     private double[][] alldist;  //alldist[i][j] 为 第j个顶点的长度数组。即，dist[i][j]是"顶点i"到"顶点j"的最短路径的长度。
     private boolean[][] allflag; //allflag[][] 为 true 意味着从顶点i到顶点j有最短路
 
@@ -24,8 +27,8 @@ public class Graph {
         for (i = 0; i < d.length; i++) {
             if (d[i] == null) break;
             int v1, v2;
-            v1 = d[i].getBeginPoint();
-            v2 = d[i].getEndPoint();
+            v1 = Math.toIntExact(d[i].getBeginPoint());
+            v2 = Math.toIntExact(d[i].getEndPoint());
             this.m[v1][v2] = this.m[v2][v1] = d[i].getDistance();
         }
         this.allpath = new int [this.numPoint][this.numPoint];

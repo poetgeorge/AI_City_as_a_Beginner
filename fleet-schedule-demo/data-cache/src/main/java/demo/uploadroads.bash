@@ -1,1 +1,1 @@
-curl -H "Content-Type: application/json" localhost:9000/road -d @road.json
+curl -H "Content-Type: application/json" localhost:9000/point -d @point.json

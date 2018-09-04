@@ -30,28 +30,28 @@ public class VehicleServiceImpl implements VehicleService {
         this.vehicleRepository.deleteAll();
     }
 
-    /*@Override
-    public Page<Vehicle> findByVid(Long vid, ) {
-        return this.vehicleRepository.findOne(vid);
-    }*/
+    @Override
+    public List<Vehicle> findAll() {
+        return this.vehicleRepository.findAll();
+    }
 
     @Override
     public Page<Vehicle> findByLicense(String license, Pageable pageable) {
         return this.vehicleRepository.findByLicense(license, pageable);
     }
 
-    @Override
-    public Page<Vehicle> findByIsEmpty(boolean isEmpty, Pageable pageable) {
-        return this.vehicleRepository.findByIsEmpty(isEmpty, pageable);
-    }
-
-    @Override
-    public Page<Vehicle> findByLocationForwardPoint(int forwardPoint, Pageable pageable) {
-        return this.vehicleRepository.findByLocationForwardPoint(forwardPoint, pageable);
-    }
-
-    @Override
-    public Page<Vehicle> findByLocationBackwardPoint(int backwardPoint, Pageable pageable) {
-        return this.vehicleRepository.findByLocationBackwardPoint(backwardPoint, pageable);
-    }
+//    @Override
+//    public Page<Vehicle> findByIsEmpty(boolean isEmpty, Pageable pageable) {
+//        return this.vehicleRepository.findByIsEmpty(isEmpty, pageable);
+//    }
+//
+//    @Override
+//    public Page<Vehicle> findByLocationForwardPoint(Long forwardPoint, Pageable pageable) {
+//        return this.vehicleRepository.findByLocationForwardPoint(forwardPoint, pageable);
+//    }
+//
+//    @Override
+//    public Page<Vehicle> findByLocationBackwardPoint(Long backwardPoint, Pageable pageable) {
+//        return this.vehicleRepository.findByLocationBackwardPoint(backwardPoint, pageable);
+//    }
 }

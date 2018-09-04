@@ -31,17 +31,22 @@ public class RoadServiceImpl implements RoadService {
     }
 
     @Override
-    public Page<Road> findByBeginPoint(int beginPoint, Pageable pageable) {
+    public List<Road> findAll() {
+        return this.roadRepository.findAll();
+    }
+
+    @Override
+    public Page<Road> findByBeginPoint(Long beginPoint, Pageable pageable) {
         return this.roadRepository.findByBeginPoint(beginPoint, pageable);
     }
 
     @Override
-    public Page<Road> findByEndPoint(int endPoint, Pageable pageable) {
+    public Page<Road> findByEndPoint(Long endPoint, Pageable pageable) {
         return this.roadRepository.findByEndPoint(endPoint, pageable);
     }
 
     @Override
-    public Page<Road> findByBeginPointAndEndPoint(int beginPoint, int endPoint, Pageable pageable) {
+    public Page<Road> findByBeginPointAndEndPoint(Long beginPoint, Long endPoint, Pageable pageable) {
         return this.roadRepository.findByBeginPointAndEndPoint(beginPoint, endPoint, pageable);
     }
 }

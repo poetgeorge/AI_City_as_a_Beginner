@@ -33,6 +33,11 @@ public class DataCacheApi {
         this.vehicleService.deleteAll();
     }
 
+    @RequestMapping(value = "/vehiclefind", method = RequestMethod.GET)
+    public List<Vehicle> findAllVehicles(){
+        return this.vehicleService.findAll();
+    }
+
     @RequestMapping(value = "/vehicle/{license}", method = RequestMethod.GET)
     public List<Vehicle> findByLicense(@PathVariable String license){
         return this.vehicleService.findByLicense(license);
@@ -45,12 +50,12 @@ public class DataCacheApi {
 
     @RequestMapping(value = "/vehicle/{forwardPoint}", method = RequestMethod.GET)
     public List<Vehicle> findByForwardPoint(@PathVariable String forwardPoint){
-        return this.vehicleService.findByLocationForwardPoint(Integer.parseInt(forwardPoint));
+        return this.vehicleService.findByLocationForwardPoint(Long.parseLong(forwardPoint));
     }
 
     @RequestMapping(value = "/vehicle/{backwardPoint}", method = RequestMethod.GET)
     public List<Vehicle> findByBackwardPoint(@PathVariable String backwardPoint){
-        return this.vehicleService.findByLocationBackwardPoint(Integer.parseInt(backwardPoint));
+        return this.vehicleService.findByLocationBackwardPoint(Long.parseLong(backwardPoint));
     }
 
 }

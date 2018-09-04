@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -19,7 +20,9 @@ import javax.persistence.Table;
 @RequiredArgsConstructor
 public class Point {
 
+    @Id
     private Long pid; //地点编号
+
     private String pName;  //地名
 
 }

@@ -17,9 +17,9 @@ import java.sql.Timestamp;
 @RequiredArgsConstructor
 public class Location {
 
-    private int forwardPoint;  //车辆前方地点编号
-    private int backwardPoint;  //车辆后方地点编号
-    private int forwardDistance;  //车辆距前方地点距离
+    private Long forwardPoint;  //车辆前方地点编号
+    private Long backwardPoint;  //车辆后方地点编号
+    private double forwardDistance;  //车辆距前方地点距离
     private Timestamp currentTime;
 
 }

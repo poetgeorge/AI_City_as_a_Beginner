@@ -10,10 +10,10 @@ public interface VehicleService {
 
     List<Vehicle> saveVehicles(List<Vehicle> vehicles);
     void deleteAll();
-    //Page<Vehicle> findByVid(Long vid, Pageable pageable);
+    List<Vehicle> findAll();
     Page<Vehicle> findByLicense(String license, Pageable pageable);
-    Page<Vehicle> findByIsEmpty(boolean isEmpty, Pageable pageable);
-    Page<Vehicle> findByLocationForwardPoint(int forwardPoint, Pageable pageable);
-    Page<Vehicle> findByLocationBackwardPoint(int backwardPoint, Pageable pageable);
+//    Page<Vehicle> findByIsEmpty(boolean isEmpty, Pageable pageable);
+//    Page<Vehicle> findByLocationForwardPoint(Long forwardPoint, Pageable pageable);
+//    Page<Vehicle> findByLocationBackwardPoint(Long backwardPoint, Pageable pageable);
 
 }

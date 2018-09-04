@@ -11,8 +11,8 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
     //Page<Vehicle> findByVid(@Param("vid") Long vid, Pageable pageable);
     Page<Vehicle> findByLicense(@Param("license") String license, Pageable pageable); //按车牌号查询车辆，以下类似
-    Page<Vehicle> findByIsEmpty(@Param("isEmpty") boolean isEmpty, Pageable pageable);
-    Page<Vehicle> findByLocationForwardPoint(@Param("forwardPoint") int forwardPoint, Pageable pageable);
-    Page<Vehicle> findByLocationBackwardPoint(@Param("backwardPoint") int backwardPoint, Pageable pageable);
+//    Page<Vehicle> findByIsEmpty(@Param("isEmpty") boolean isEmpty, Pageable pageable);
+//    Page<Vehicle> findByLocationForwardPoint(@Param("forwardPoint") Long forwardPoint, Pageable pageable);
+//    Page<Vehicle> findByLocationBackwardPoint(@Param("backwardPoint") Long backwardPoint, Pageable pageable);
 
 }
