@@ -7,11 +7,11 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
+public interface VehicleRepository extends JpaRepository<VehicleState, Long> {
 
-    List<Vehicle> findByLicense(@Param("license") String license); //按车牌号查询车辆，以下类似
-    List<Vehicle> findByIsEmpty(@Param("isEmpty") boolean isEmpty);
-    List<Vehicle> findByLocationForwardPoint(@Param("forwardPoint") Long forwardPoint);
-    List<Vehicle> findByLocationBackwardPoint(@Param("backwardPoint") Long backwardPoint);
+    List<VehicleState> findByLicense(@Param("license") String license); //按车牌号查询车辆，以下类似
+    List<VehicleState> findByIsEmpty(@Param("isEmpty") boolean isEmpty);
+    List<VehicleState> findByLocationForwardPoint(@Param("forwardPoint") Long forwardPoint);
+    List<VehicleState> findByLocationBackwardPoint(@Param("backwardPoint") Long backwardPoint);
 
 }

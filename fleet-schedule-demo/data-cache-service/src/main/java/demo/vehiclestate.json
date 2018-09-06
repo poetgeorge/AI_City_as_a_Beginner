@@ -1,0 +1,19 @@
+[{
+"vid" : "0",
+"license" : "SH001",
+"isEmpty" : "true",
+"location" : {
+"forwardPoint": "2",
+"backwardPoint" : "1",
+"forwardDistance" : "1.0"},
+"Destination" : "2"},
+{
+"vid" : "1",
+"license" : "SH002",
+"isEmpty" : "true",
+"location" : {
+"forwardPoint": "1",
+"backwardPoint" : "0",
+"forwardDistance" : "1.0"},
+"Destination" : "1"
+}]

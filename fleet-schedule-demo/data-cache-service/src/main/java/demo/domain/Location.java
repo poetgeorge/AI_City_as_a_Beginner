@@ -20,6 +20,6 @@ public class Location {
     private Long forwardPoint;  //车辆前方地点编号
     private Long backwardPoint;  //车辆后方地点编号
     private double forwardDistance;  //车辆距前方地点距离
-    private Timestamp currentTime;
+    //private Timestamp currentTime;
 
 }

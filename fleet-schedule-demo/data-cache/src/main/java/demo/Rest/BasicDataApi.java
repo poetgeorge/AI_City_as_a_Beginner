@@ -3,7 +3,7 @@ package demo.Rest;
 import demo.Service.PointService;
 import demo.Service.RoadService;
 import demo.Service.VehicleService;
-import demo.domain.Point;
+import demo.domain.myPoint;
 import demo.domain.Road;
 import demo.domain.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +29,10 @@ public class BasicDataApi {
         this.pointService = pointService;
     }
 
-    @RequestMapping(value = "/point", method = RequestMethod.POST)
+    @RequestMapping(value = "/mypoint", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void uploadpoints(@RequestBody List<Point> points){
-        this.pointService.savePoints(points);
+    public void uploadpoints(@RequestBody List<myPoint> myPoints){
+        this.pointService.savePoints(myPoints);
     }
 
     @RequestMapping(value = "/road", method = RequestMethod.POST)
@@ -53,7 +53,7 @@ public class BasicDataApi {
     }
 
     @RequestMapping(value = "/pointfind", method = RequestMethod.GET)
-    public List<Point> findAllPoints(){
+    public List<myPoint> findAllPoints(){
         return this.pointService.findAll();
     }
 
@@ -77,27 +77,27 @@ public class BasicDataApi {
         this.pointService.deleteAll();
     }
 
-    @RequestMapping(value = "/road/{beginPoint}", method = RequestMethod.GET)
+    @RequestMapping(value = "/roadb/{beginPoint}", method = RequestMethod.GET)
     public Page<Road> findByBeginPoint(@PathVariable String beginPoint, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
-        return this.roadService.findByBeginPoint(Long.parseLong(beginPoint), new PageRequest(page,size));
+        return this.roadService.findByBeginPoint(Integer.parseInt(beginPoint), new PageRequest(page,size));
     }
 
-    @RequestMapping(value = "/road/{endPoint}", method = RequestMethod.GET)
+    @RequestMapping(value = "/roade/{endPoint}", method = RequestMethod.GET)
     public Page<Road> findByEndPoint(@PathVariable String endPoint, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
-        return this.roadService.findByEndPoint(Long.parseLong(endPoint), new PageRequest(page,size));
+        return this.roadService.findByEndPoint(Integer.parseInt(endPoint), new PageRequest(page,size));
     }
 
     @RequestMapping(value = "/road2/{beginPoint}/{endPoint}", method = RequestMethod.GET)
     public Page<Road> findByBeginPointAndEndPoint(@PathVariable String beginPoint,@PathVariable String endPoint, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
-        return this.roadService.findByBeginPointAndEndPoint(Long.parseLong(beginPoint), Long.parseLong(endPoint), new PageRequest(page,size));
+        return this.roadService.findByBeginPointAndEndPoint(Integer.parseInt(beginPoint), Integer.parseInt(endPoint), new PageRequest(page,size));
     }
 
-    @RequestMapping(value = "/point/{pName}", method = RequestMethod.GET)
-    public Page<Point> findByPName(@PathVariable String pName, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
+    @RequestMapping(value = "/pointp/{pName}", method = RequestMethod.GET)
+    public Page<myPoint> findByPName(@PathVariable String pName, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
         return this.pointService.findByPName(pName, new PageRequest(page,size));
     }
 
-    @RequestMapping(value = "/vehicle/{license}", method = RequestMethod.GET)
+    @RequestMapping(value = "/vehicleli/{license}", method = RequestMethod.GET)
     public Page<Vehicle> findByLicense(@PathVariable String license, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
         return this.vehicleService.findByLicense(license, new PageRequest(page,size));
     }

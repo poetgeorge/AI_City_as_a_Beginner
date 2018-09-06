@@ -1,17 +1,17 @@
 package demo.Service;
 
-import demo.domain.Vehicle;
+import demo.domain.VehicleState;
 
 import java.util.List;
 
 public interface VehicleService {
 
-    List<Vehicle> saveVehicles(List<Vehicle> vehicles);
+    List<VehicleState> saveVehicles(List<VehicleState> vehicleStates);
     void deleteAll();
-    List<Vehicle> findAll();
-    List<Vehicle> findByLicense(String license);
-    List<Vehicle> findByIsEmpty(boolean isEmpty);
-    List<Vehicle> findByLocationForwardPoint(Long forwardPoint);
-    List<Vehicle> findByLocationBackwardPoint(Long backwardPoint);
+    List<VehicleState> findAll();
+    List<VehicleState> findByLicense(String license);
+    List<VehicleState> findByIsEmpty(boolean isEmpty);
+    List<VehicleState> findByLocationForwardPoint(Long forwardPoint);
+    List<VehicleState> findByLocationBackwardPoint(Long backwardPoint);
 
 }

@@ -14,9 +14,9 @@ public class ScheduleApi {
         this.scheduleService = scheduleService;
     }
 
-    @RequestMapping(value = "/schedule/{startPoint}/{endPoint}", method = RequestMethod.GET)
+    @RequestMapping(value = "/schedule", params = {"startPoint", "endPoint"}, method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public String schedulerequest(@PathVariable String startPoint, @PathVariable String endPoint){
-        return this.scheduleService.schedule(Integer.parseInt(startPoint), Integer.parseInt(endPoint));
+    public String schedulerequest(@RequestParam int startPoint, @RequestParam int endPoint){
+        return this.scheduleService.schedule(startPoint, endPoint);
     }
 }

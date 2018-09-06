@@ -1,7 +1,7 @@
 package demo.Service.impl;
 
 import demo.Service.PointService;
-import demo.domain.Point;
+import demo.domain.myPoint;
 import demo.domain.PointRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,8 +21,8 @@ public class PointServiceImpl implements PointService {
     }
 
     @Override
-    public List<Point> savePoints(List<Point> points) {
-        return this.pointRepository.save(points);
+    public List<myPoint> savePoints(List<myPoint> myPoints) {
+        return this.pointRepository.save(myPoints);
     }
 
     @Override
@@ -31,12 +31,12 @@ public class PointServiceImpl implements PointService {
     }
 
     @Override
-    public List<Point> findAll() {
+    public List<myPoint> findAll() {
         return this.pointRepository.findAll();
     }
 
     @Override
-    public Page<Point> findByPName(String pName, Pageable pageable) {
+    public Page<myPoint> findByPName(String pName, Pageable pageable) {
         return this.pointRepository.findByPName(pName, pageable);
     }
 }

@@ -1,0 +1,1 @@
+curl -H "Content-Type: application/json" localhost:9005/vehiclest -d @D:\myja\AI_City_as_a_Beginner\fleet-schedule-demo\data-cache-service\src\main\java\demo\vehiclestate.json

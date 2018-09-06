@@ -4,11 +4,20 @@ spring:
   application:
     name: schedule-service
 
-data:
-  cache: http://localhost:9005
----
-
 basic:
   data: http://localhost:9000
 ---
 
+data:
+  cache: http://localhost:9005
+---
+
+ribbon:
+  eureka:
+    enabled: false
+data-cache:
+  ribbon:
+    listOfServers: localhost:9005
+basic-data:
+  ribbon:
+    listOfServers: localhost:9000

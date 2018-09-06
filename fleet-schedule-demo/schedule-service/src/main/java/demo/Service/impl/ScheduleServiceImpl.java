@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class ScheduleServiceImpl implements ScheduleService {
 
-    private Graph graph;
+    //private Graph graph;
 
     private BehaviorRepository behaviorRepository;
 
@@ -31,16 +31,18 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Autowired
     public ScheduleServiceImpl(BehaviorRepository behaviorRepository){
 
-        RoadList rres = this.restTemplate.getForObject(basicData + "/roadfind", RoadList.class);
-        List<Road> myroads = rres.getRoads();
-        PointList pres = this.restTemplate.getForObject(basicData + "/pointfind", PointList.class);
-        List<Point> mypoints = pres.getPoints();
-        final int rsize = myroads.size();
-        Road[] roads = (Road[])myroads.toArray(new Road[rsize]);
-        final int psize = mypoints.size();
-        Point[] points = (Point[])mypoints.toArray((new Point[psize]));
+        super();
 
-        Graph graph = new Graph(roads, points);
+//        RoadList rres = this.restTemplate.getForObject(basicData + "/roadfind", RoadList.class);
+//        List<Road> myroads = rres.getRoads();
+//        PointList pres = this.restTemplate.getForObject(basicData + "/pointfind", PointList.class);
+//        List<myPoint> mypoints = pres.getMyPoints();
+//        final int rsize = myroads.size();
+//        Road[] roads = (Road[])myroads.toArray(new Road[rsize]);
+//        final int psize = mypoints.size();
+//        myPoint[] myPoints = (myPoint[])mypoints.toArray((new myPoint[psize]));
+//
+//        Graph graph = new Graph(roads, myPoints);
         this.behaviorRepository = behaviorRepository;
     }
 
@@ -50,15 +52,30 @@ public class ScheduleServiceImpl implements ScheduleService {
         String license = null; //车牌号
         Long vid = 1L;  //车辆ID
         double distance = 0.0;  //车辆总行驶距离
-        List<Long> path = new ArrayList<>();  //车辆路径
-        List<Long> path2 = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();  //车辆路径
+        List<Integer> path2 = new ArrayList<>();
 
-        VehicleList vres = this.restTemplate.getForObject(dataCache + "/vehiclefind", VehicleList.class);
-        List<Vehicle> myvehicles = vres.getVehicles();
-        final int vsize = myvehicles.size();
-        Vehicle[] vehicles = (Vehicle[])myvehicles.toArray(new Vehicle[vsize]);
+        //RoadList rres = this.restTemplate.getForObject(basicData + "/roadfind", RoadList.class);
+        Road[] roads = this.restTemplate.getForObject(basicData + "/roadfind", Road[].class);
+        //List<Road> myroads = rres.getRoads();
+        //PointList pres = this.restTemplate.getForObject(basicData + "/pointfind", PointList.class);
+        myPoint[] myPoints = this.restTemplate.getForObject(basicData + "/pointfind", myPoint[].class);
+        //List<myPoint> mypoints = pres.getMyPoints();
+        //final int rsize = myroads.size();
+        //Road[] roads = (Road[])myroads.toArray(new Road[rsize]);
+        //final int psize = mypoints.size();
+        //myPoint[] myPoints = (myPoint[])mypoints.toArray((new myPoint[psize]));
 
-        Graph g = this.graph;
+        Graph g = new Graph(roads, myPoints);
+
+        VehicleState[] vehicles= this.restTemplate.getForObject(dataCache + "/vehiclestfind", VehicleState[].class);
+//        List<VehicleState> myvehicles = vres.getVehicleStates();
+//        final int vsize = myvehicles.size();
+//        VehicleState[] vehicles = (VehicleState[])myvehicles.toArray(new VehicleState[vsize]);
+
+
+
+        //Graph g = this.graph;
         g.dijsktraall();
 
         distance = g.getAlldist()[startPoint][endPoint];
@@ -79,14 +96,31 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
         distance = distance + vd;
 
-        for(i=startPoint;i!= vsp;i=g.getAllpath()[vsp][i])
-            path.add(Long.valueOf(g.getAllpath()[vsp][i]));
+//        for(i=startPoint;i!= vsp;i=g.getAllpath()[vsp][i])
+//            path.add(g.getAllpath()[vsp][i]);
+//        Collections.reverse(path);
+//
+//
+//
+//        for(i=endPoint;i!=startPoint;i=g.getAllpath()[startPoint][i])
+//            path2.add(g.getAllpath()[startPoint][i]);
+//        Collections.reverse(path2);
+        i = startPoint;
+        path.add(startPoint);
+        while(true){
+            if(i==vsp) break;
+            path.add(g.getAllpath()[vsp][i]);
+            i = g.getAllpath()[vsp][i];
+        }
         Collections.reverse(path);
 
-
-
-        for(i=endPoint;i!=startPoint;i=g.getAllpath()[startPoint][i])
-            path2.add(Long.valueOf(g.getAllpath()[startPoint][i]));
+        i = endPoint;
+        path2.add(endPoint);
+        while(true){
+            if(i==startPoint) break;
+            path2.add(g.getAllpath()[startPoint][i]);
+            i = g.getAllpath()[startPoint][i];
+        }
         Collections.reverse(path2);
 
         path.addAll(path2);

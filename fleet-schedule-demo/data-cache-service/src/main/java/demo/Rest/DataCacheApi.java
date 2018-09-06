@@ -1,7 +1,7 @@
 package demo.Rest;
 
 import demo.Service.VehicleService;
-import demo.domain.Vehicle;
+import demo.domain.VehicleState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,41 +20,41 @@ public class DataCacheApi {
 
 
 
-    @RequestMapping(value = "/vehicle", method = RequestMethod.POST)
+    @RequestMapping(value = "/vehiclest", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void uploadvehicles(@RequestBody List<Vehicle> vehicles){
-        this.vehicleService.saveVehicles(vehicles);
+    public void uploadvehicles(@RequestBody List<VehicleState> vehicleStates){
+        this.vehicleService.saveVehicles(vehicleStates);
     }
 
 
 
-    @RequestMapping(value = "/purge/vehicle", method = RequestMethod.POST)
+    @RequestMapping(value = "/purge/vehiclest", method = RequestMethod.POST)
     public void purgevehicles(){
         this.vehicleService.deleteAll();
     }
 
-    @RequestMapping(value = "/vehiclefind", method = RequestMethod.GET)
-    public List<Vehicle> findAllVehicles(){
+    @RequestMapping(value = "/vehiclestfind", method = RequestMethod.GET)
+    public List<VehicleState> findAllVehicles(){
         return this.vehicleService.findAll();
     }
 
-    @RequestMapping(value = "/vehicle/{license}", method = RequestMethod.GET)
-    public List<Vehicle> findByLicense(@PathVariable String license){
+    @RequestMapping(value = "/vehiclestl/{license}", method = RequestMethod.GET)
+    public List<VehicleState> findByLicense(@PathVariable String license){
         return this.vehicleService.findByLicense(license);
     }
 
-    @RequestMapping(value = "/vehicle/{isEmpty}", method = RequestMethod.GET)
-    public List<Vehicle> findByIsEmpty(@PathVariable String isEmpty){
+    @RequestMapping(value = "/vehicleste/{isEmpty}", method = RequestMethod.GET)
+    public List<VehicleState> findByIsEmpty(@PathVariable String isEmpty){
         return this.vehicleService.findByIsEmpty(Boolean.parseBoolean(isEmpty));
     }
 
-    @RequestMapping(value = "/vehicle/{forwardPoint}", method = RequestMethod.GET)
-    public List<Vehicle> findByForwardPoint(@PathVariable String forwardPoint){
+    @RequestMapping(value = "/vehiclestf/{forwardPoint}", method = RequestMethod.GET)
+    public List<VehicleState> findByForwardPoint(@PathVariable String forwardPoint){
         return this.vehicleService.findByLocationForwardPoint(Long.parseLong(forwardPoint));
     }
 
-    @RequestMapping(value = "/vehicle/{backwardPoint}", method = RequestMethod.GET)
-    public List<Vehicle> findByBackwardPoint(@PathVariable String backwardPoint){
+    @RequestMapping(value = "/vehiclestb/{backwardPoint}", method = RequestMethod.GET)
+    public List<VehicleState> findByBackwardPoint(@PathVariable String backwardPoint){
         return this.vehicleService.findByLocationBackwardPoint(Long.parseLong(backwardPoint));
     }
 

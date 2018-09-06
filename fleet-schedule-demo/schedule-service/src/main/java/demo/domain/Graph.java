@@ -8,28 +8,30 @@ import lombok.Data;
 public class Graph {
 
     private double[][] m; //邻接矩阵
-    //private Point[] p;  //地点集合
+    //private myPoint[] p;  //地点集合
     //private Road[] road;  //道路集合
     private int numPoint;  //地点数
-    private final int MAX=Integer.MAX_VALUE;  //最大值，用于代表此路不通
+    private final double MAX=10000.0;  //最大值，用于代表此路不通
     private int [][] allpath;  //allpath[i][j] 为 第i个顶点的前驱顶点数组。即，allpath[i][j]的值是"顶点i"到"顶点j"的最短路径所经历的全部顶点中，位于"顶点j"之前的那个顶点
     private double[][] alldist;  //alldist[i][j] 为 第j个顶点的长度数组。即，dist[i][j]是"顶点i"到"顶点j"的最短路径的长度。
     private boolean[][] allflag; //allflag[][] 为 true 意味着从顶点i到顶点j有最短路
 
-    public Graph(Road[] d, Point[] p){
+    public Graph(Road[] d, myPoint[] p){
         this.numPoint = p.length;
+        this.m = new double[this.numPoint][this.numPoint];
         int i,j;
         //for(i=0;i<p.length;i++)
             //this.p[i] = p[i];
         for(i=0;i<p.length;i++)
             for(j=0;j<p.length;j++)
-                this.m[i][j]=MAX;
+                this.m[i][j]=this.MAX;
         for (i = 0; i < d.length; i++) {
             if (d[i] == null) break;
             int v1, v2;
-            v1 = Math.toIntExact(d[i].getBeginPoint());
-            v2 = Math.toIntExact(d[i].getEndPoint());
-            this.m[v1][v2] = this.m[v2][v1] = d[i].getDistance();
+            v1 = d[i].getBeginPoint();
+            v2 = d[i].getEndPoint();
+            this.m[v1][v2]  = d[i].getDistance();
+            this.m[v2][v1] = d[i].getDistance();
         }
         this.allpath = new int [this.numPoint][this.numPoint];
         this.alldist = new double [this.numPoint][this.numPoint];
@@ -55,7 +57,7 @@ public class Graph {
             // 初始化
             for (int i = 0; i < this.numPoint; i++) {
                 flag[i] = false;          // 顶点i的最短路径还没获取到。
-                prev[i] = 0;              // 顶点i的前驱顶点为0。
+                prev[i] = vs;              // 顶点i的前驱顶点为a。
                 dist[i] = this.m[vs][i];  // 顶点i的最短路径为"顶点vs"到"顶点i"的权。
             }
 

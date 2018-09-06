@@ -1,0 +1,14 @@
+demo\Service\impl\PointServiceImpl.class
+demo\Service\impl\VehicleServiceImpl.class
+demo\domain\RoadRepository.class
+demo\domain\myPoint.class
+demo\Service\impl\RoadServiceImpl.class
+demo\Service\VehicleService.class
+demo\domain\PointRepository.class
+demo\domain\VehicleRepository.class
+demo\domain\Vehicle.class
+demo\Service\PointService.class
+demo\BasicDataApplication.class
+demo\Service\RoadService.class
+demo\domain\Road.class
+demo\Rest\BasicDataApi.class

@@ -1,6 +1,6 @@
 package demo.Service.impl;
 
-import demo.domain.Point;
+import demo.domain.myPoint;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -8,9 +8,9 @@ import java.util.List;
 
 @Data
 public class PointList {
-    private List<Point> points;
+    private List<myPoint> myPoints;
 
     public PointList(){
-        points = new ArrayList<>();
+        myPoints = new ArrayList<>();
     }
 }

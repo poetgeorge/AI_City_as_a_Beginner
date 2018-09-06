@@ -1,0 +1,7 @@
+demo\domain\Location.class
+demo\Service\impl\VehicleServiceImpl.class
+demo\domain\VehicleRepository.class
+demo\Rest\DataCacheApi.class
+demo\domain\VehicleState.class
+demo\DataCacheApplication.class
+demo\Service\VehicleService.class
