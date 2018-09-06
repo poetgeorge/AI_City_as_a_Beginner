@@ -11,8 +11,5 @@
         <module name="schedule-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="basic-data-service" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
