@@ -20,8 +20,8 @@ uber-demo是参考样例，架构见其中demo.pdf
 
 		 
 代码结构解释：核心代码在..\src\main\java\demo
-              domain包含有该模块所需实体的模型和CRUD的接口
-              service包实现具体业务逻辑
-			  rest包实现模块对外接口
+              domain包含有该模块所需实体的模型和访问接口
+              service包实现具体业务逻辑，如CRUD，车辆调度等
+			  rest包实现模块对外REST风格接口
 			  
               ..\main\resources内有配置文件，包括运行端口等
