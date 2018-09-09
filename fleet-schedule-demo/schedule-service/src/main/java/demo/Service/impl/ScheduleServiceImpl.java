@@ -55,6 +55,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         List<Integer> path = new ArrayList<>();  //车辆路径
         List<Integer> path2 = new ArrayList<>();
 
+        //读取地图和车辆状态
         //RoadList rres = this.restTemplate.getForObject(basicData + "/roadfind", RoadList.class);
         Road[] roads = this.restTemplate.getForObject(basicData + "/roadfind", Road[].class);
         //List<Road> myroads = rres.getRoads();
@@ -75,6 +76,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
 
 
+
         //Graph g = this.graph;
         g.dijsktraall();
 
@@ -85,6 +87,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         int i;
         int vsp=0;
 
+           //选择车辆
         for(i=0;i<vehicles.length;i++){
            Long p = vehicles[i].getLocation().getForwardPoint();
            if(g.getAlldist()[Math.toIntExact(p)][startPoint]<vd){
@@ -105,6 +108,8 @@ public class ScheduleServiceImpl implements ScheduleService {
 //        for(i=endPoint;i!=startPoint;i=g.getAllpath()[startPoint][i])
 //            path2.add(g.getAllpath()[startPoint][i]);
 //        Collections.reverse(path2);
+
+        //给出路径建议
         i = startPoint;
         path.add(startPoint);
         while(true){
@@ -129,6 +134,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         向车辆发送命令部分未完成
          */
 
+        //记录车辆行为
         VehicleBehavior vehicleBehavior = new VehicleBehavior();
         vehicleBehavior.setVid(Math.toIntExact(vid));
         vehicleBehavior.setStartPoint(vsp);
@@ -136,7 +142,6 @@ public class ScheduleServiceImpl implements ScheduleService {
         vehicleBehavior.setMileage(distance);
         List<VehicleBehavior> thebehavior = new ArrayList<>();
         thebehavior.add(vehicleBehavior);
-
         this.behaviorRepository.save(thebehavior);
 
         return license;

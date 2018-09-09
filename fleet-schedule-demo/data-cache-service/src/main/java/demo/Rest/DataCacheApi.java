@@ -18,16 +18,14 @@ public class DataCacheApi {
         this.vehicleService = vehicleService;
     }
 
-
-
+    //增加（含更新）车辆状态
     @RequestMapping(value = "/vehiclest", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void uploadvehicles(@RequestBody List<VehicleState> vehicleStates){
         this.vehicleService.saveVehicles(vehicleStates);
     }
 
-
-
+    
     @RequestMapping(value = "/purge/vehiclest", method = RequestMethod.POST)
     public void purgevehicles(){
         this.vehicleService.deleteAll();
