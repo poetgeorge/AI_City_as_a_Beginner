@@ -24,4 +24,4 @@ uber-demo是参考样例，架构见其中demo.pdf
               service包实现具体业务逻辑，如CRUD，车辆调度等
 			  rest包实现模块对外REST风格接口
 			  
-              ..\main\resources内有配置文件，包括运行端口等
+  在..\main\resources内有配置文件，包括运行端口等
