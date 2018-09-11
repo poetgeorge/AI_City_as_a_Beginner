@@ -27,6 +27,6 @@ public class VehicleState {
     @Embedded
     private Location location;  //车辆位置，自定义类
 
-    private int Destination;  //车辆目的地点编号
+    private Long Destination;  //车辆目的地点编号
 
 }
