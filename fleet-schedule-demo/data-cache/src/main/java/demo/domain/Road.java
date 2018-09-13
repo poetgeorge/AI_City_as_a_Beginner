@@ -1,7 +1,5 @@
 package demo.domain;
 
-//道路数据
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
 import lombok.AllArgsConstructor;
@@ -12,11 +10,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 道路数据
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 @AllArgsConstructor
 @Entity
-//对应数据库中表名"ROAD"
 @Table(name = "ROAD")
 @RequiredArgsConstructor
 public class Road {

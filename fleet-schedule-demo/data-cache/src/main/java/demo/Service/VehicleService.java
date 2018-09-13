@@ -6,11 +6,36 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
+/**
+ * 车辆基础数据服务
+ */
+
 public interface VehicleService {
 
+    /**
+     * 增加（含更新）
+     * @param vehicles 准备写入的车辆基础数据
+     * @return
+     */
     List<Vehicle> saveVehicles(List<Vehicle> vehicles);
+
+    /**
+     * 删除所有
+     */
     void deleteAll();
+
+    /**
+     * 查询所有
+     * @return
+     */
     List<Vehicle> findAll();
+
+    /**
+     * 按车牌号查询
+     * @param license 车牌号
+     * @param pageable
+     * @return
+     */
     Page<Vehicle> findByLicense(String license, Pageable pageable);
 //    Page<Vehicle> findByIsEmpty(boolean isEmpty, Pageable pageable);
 //    Page<Vehicle> findByLocationForwardPoint(Long forwardPoint, Pageable pageable);

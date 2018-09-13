@@ -1,5 +1,7 @@
 package demo.Service.impl;
 
+//调度服务的核心业务逻辑
+
 import demo.Service.ScheduleService;
 import demo.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,6 +80,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
 
         //Graph g = this.graph;
+        //计算最短路基础值
         g.dijsktraall();
 
         distance = g.getAlldist()[startPoint][endPoint];

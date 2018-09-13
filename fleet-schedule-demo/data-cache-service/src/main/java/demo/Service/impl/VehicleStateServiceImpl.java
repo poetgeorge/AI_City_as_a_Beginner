@@ -1,60 +1,60 @@
 package demo.Service.impl;
 
-import demo.Service.VehicleService;
+import demo.Service.VehicleStateService;
 import demo.domain.VehicleState;
-import demo.domain.VehicleRepository;
+import demo.domain.VehicleStateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class VehicleServiceImpl implements VehicleService {
+public class VehicleStateServiceImpl implements VehicleStateService {
 
-    private VehicleRepository vehicleRepository;
+    private VehicleStateRepository vehicleStateRepository;
 
     @Autowired
-    public VehicleServiceImpl(VehicleRepository vehicleRepository){
-        this.vehicleRepository = vehicleRepository;
+    public VehicleStateServiceImpl(VehicleStateRepository vehicleRepository){
+        this.vehicleStateRepository = vehicleRepository;
     }
 
     @Override
     public List<VehicleState> saveVehicles(List<VehicleState> vehicleStates) {
-        return vehicleRepository.save(vehicleStates);
+        return vehicleStateRepository.save(vehicleStates);
     }
 
     @Override
     public void deleteAll() {
-        this.vehicleRepository.deleteAll();
+        this.vehicleStateRepository.deleteAll();
     }
 
     /*@Override
     public Page<VehicleState> findByVid(Long vid, ) {
-        return this.vehicleRepository.findOne(vid);
+        return this.vehicleStateRepository.findOne(vid);
     }*/
 
     @Override
     public List<VehicleState> findByLicense(String license) {
-        return this.vehicleRepository.findByLicense(license);
+        return this.vehicleStateRepository.findByLicense(license);
     }
 
     @Override
     public List<VehicleState> findByIsEmpty(boolean isEmpty) {
-        return this.vehicleRepository.findByIsEmpty(isEmpty);
+        return this.vehicleStateRepository.findByIsEmpty(isEmpty);
     }
 
     @Override
     public List<VehicleState> findByLocationForwardPoint(Long forwardPoint) {
-        return this.vehicleRepository.findByLocationForwardPoint(forwardPoint);
+        return this.vehicleStateRepository.findByLocationForwardPoint(forwardPoint);
     }
 
     @Override
     public List<VehicleState> findByLocationBackwardPoint(Long backwardPoint) {
-        return this.vehicleRepository.findByLocationBackwardPoint(backwardPoint);
+        return this.vehicleStateRepository.findByLocationBackwardPoint(backwardPoint);
     }
 
     @Override
     public List<VehicleState> findAll() {
-        return this.vehicleRepository.findAll();
+        return this.vehicleStateRepository.findAll();
     }
 }

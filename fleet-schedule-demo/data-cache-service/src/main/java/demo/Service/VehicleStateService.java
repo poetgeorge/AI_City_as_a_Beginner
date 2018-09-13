@@ -1,10 +1,11 @@
 package demo.Service;
 
+
 import demo.domain.VehicleState;
 
 import java.util.List;
 
-public interface VehicleService {
+public interface VehicleStateService {
 
     List<VehicleState> saveVehicles(List<VehicleState> vehicleStates);
     void deleteAll();

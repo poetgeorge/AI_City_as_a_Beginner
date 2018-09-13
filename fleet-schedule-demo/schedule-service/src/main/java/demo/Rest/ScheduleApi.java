@@ -14,7 +14,7 @@ public class ScheduleApi {
         this.scheduleService = scheduleService;
     }
 
-    //车辆调度接口，返回车牌号
+    //车辆调度接口，输入出发地和目的地，返回车牌号
     @RequestMapping(value = "/schedule", params = {"startPoint", "endPoint"}, method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public String scheduleRequest(@RequestParam int startPoint, @RequestParam int endPoint){

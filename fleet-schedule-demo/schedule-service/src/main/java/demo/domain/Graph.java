@@ -1,6 +1,6 @@
 package demo.domain;
 
-//地图类
+//地图类，包含最短路算法
 
 import lombok.Data;
 
@@ -12,8 +12,8 @@ public class Graph {
     //private Road[] road;  //道路集合
     private int numPoint;  //地点数
     private final double MAX=10000.0;  //最大值，用于代表此路不通
-    private int [][] allpath;  //allpath[i][j] 为 第i个顶点的前驱顶点数组。即，allpath[i][j]的值是"顶点i"到"顶点j"的最短路径所经历的全部顶点中，位于"顶点j"之前的那个顶点
-    private double[][] alldist;  //alldist[i][j] 为 第j个顶点的长度数组。即，dist[i][j]是"顶点i"到"顶点j"的最短路径的长度。
+    private int [][] allpath;  //allpath[][] 为 全局前驱顶点矩阵。即，allpath[i][j]的值是"顶点i"到"顶点j"的最短路径所经历的全部顶点中，位于"顶点j"之前的那个顶点
+    private double[][] alldist;  //alldist[][] 为 全局长度矩阵。即，dist[i][j]是"顶点i"到"顶点j"的最短路径的长度。
     private boolean[][] allflag; //allflag[][] 为 true 意味着从顶点i到顶点j有最短路
 
     public Graph(Road[] d, myPoint[] p){
@@ -39,7 +39,7 @@ public class Graph {
     }
 
 
-    //Dijsktra最短路算法
+    //Dijsktra最短路算法，计算图中任意两点间最短路
     public void dijsktraall() {
         int a;
         for(a=0;a<this.numPoint;a++) {

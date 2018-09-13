@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class VehicleServiceImpl implements VehicleService {
+public class VehicleStateServiceImpl implements VehicleService {
 
     private VehicleRepository vehicleRepository;
 
     @Autowired
-    public VehicleServiceImpl(VehicleRepository vehicleRepository){
+    public VehicleStateServiceImpl(VehicleRepository vehicleRepository){
         this.vehicleRepository = vehicleRepository;
     }
 
