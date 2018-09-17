@@ -1,19 +1,42 @@
 [{
-"vid" : "0",
-"license" : "SH001",
-"isEmpty" : "true",
+"vid" : "0", //车辆编号
+"license" : "SH001", //车牌号
+"isEmpty" : "true", //是否空闲
 "location" : {
-"forwardPoint": "2",
-"backwardPoint" : "1",
-"forwardDistance" : "1.0"},
-"Destination" : "2"},
-{
-"vid" : "1",
-"license" : "SH002",
-"isEmpty" : "true",
-"location" : {
-"forwardPoint": "1",
-"backwardPoint" : "0",
-"forwardDistance" : "1.0"},
-"Destination" : "1"
-}]
+  "currentRoad" : "0", //所在道路编号
+"forwardPoint": "1", //车辆前方地点编号
+"backwardPoint" : "0", //车辆后方地点编号
+"forwardDistance" : "5.0"}, //车辆距前方地点距离
+"Destination" : "1" }, //车辆目的地点编号
+  {
+    "vid" : "1",
+    "license" : "SH002",
+    "isEmpty" : "true",
+    "location" : {
+      "currentRoad" : "1",
+      "forwardPoint": "2",
+      "backwardPoint" : "1",
+      "forwardDistance" : "1.5"},
+    "Destination" : "2"},
+  {
+    "vid" : "2",
+    "license" : "SH003",
+    "isEmpty" : "true",
+    "location" : {
+      "currentRoad" : "6",
+      "forwardPoint": "5",
+      "backwardPoint" : "3",
+      "forwardDistance" : "6.0"},
+    "Destination" : "5"},
+  {
+    "vid" : "3",
+    "license" : "SH004",
+    "isEmpty" : "true",
+    "location" : {
+      "currentRoad" : "9",
+      "forwardPoint": "8",
+      "backwardPoint" : "5",
+      "forwardDistance" : "10.5"},
+    "Destination" : "8"}
+
+]

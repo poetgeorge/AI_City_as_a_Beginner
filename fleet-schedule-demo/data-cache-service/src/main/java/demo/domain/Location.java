@@ -17,6 +17,7 @@ import java.sql.Timestamp;
 @RequiredArgsConstructor
 public class Location {
 
+    private Long currentRoad;  //所在道路编号
     private Long forwardPoint;  //车辆前方地点编号
     private Long backwardPoint;  //车辆后方地点编号
     private double forwardDistance;  //车辆距前方地点距离

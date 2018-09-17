@@ -44,6 +44,11 @@ public class VehicleStateServiceImpl implements VehicleStateService {
     }
 
     @Override
+    public List<VehicleState> findByLocationCurrentRoad(Long currentRoad) {
+        return this.vehicleStateRepository.findByLocationCurrentRoad(currentRoad);
+    }
+
+    @Override
     public List<VehicleState> findByLocationForwardPoint(Long forwardPoint) {
         return this.vehicleStateRepository.findByLocationForwardPoint(forwardPoint);
     }

@@ -12,6 +12,7 @@ public interface VehicleStateService {
     List<VehicleState> findAll();
     List<VehicleState> findByLicense(String license);
     List<VehicleState> findByIsEmpty(boolean isEmpty);
+    List<VehicleState> findByLocationCurrentRoad(Long currentRoad);
     List<VehicleState> findByLocationForwardPoint(Long forwardPoint);
     List<VehicleState> findByLocationBackwardPoint(Long backwardPoint);
 

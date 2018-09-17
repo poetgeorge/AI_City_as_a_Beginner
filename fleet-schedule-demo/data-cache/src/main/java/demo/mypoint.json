@@ -1,18 +1,63 @@
 [
 {
-"pid" : "0",
-"pName" : "A1"
+"pid" : "0", //地点编号
+  "crdx" : "0", //地点x坐标
+  "crdy" : "0", //地点y坐标
+"pName" : "A" //地名
 },
-{
-"pid" : "1",
-"pName" : "B1"
-},
-{
-"pid" : "2",
-"pName" : "C1"
-},
-{
-"pid" : "3",
-"pName" : "D1"
-}
+  {
+    "pid" : "1",
+    "crdx" : "10",
+    "crdy" : "0",
+    "pName" : "B"
+  },
+  {
+    "pid" : "2",
+    "crdx" : "15",
+    "crdy" : "0",
+    "pName" : "C"
+  },
+  {
+    "pid" : "3",
+    "crdx" : "10",
+    "crdy" : "5",
+    "pName" : "D"
+  },
+  {
+    "pid" : "4",
+    "crdx" : "20",
+    "crdy" : "5",
+    "pName" : "E"
+  },
+  {
+    "pid" : "5",
+    "crdx" : "0",
+    "crdy" : "10",
+    "pName" : "F"
+  },
+  {
+    "pid" : "6",
+    "crdx" : "5",
+    "crdy" : "15",
+    "pName" : "G"
+  },
+  {
+    "pid" : "7",
+    "crdx" : "10",
+    "crdy" : "15",
+    "pName" : "H"
+  },
+  {
+    "pid" : "8",
+    "crdx" : "20",
+    "crdy" : "15",
+    "pName" : "I"
+  },
+  {
+    "pid" : "9",
+    "crdx" : "15",
+    "crdy" : "20",
+    "pName" : "J"
+  }
+
 ]

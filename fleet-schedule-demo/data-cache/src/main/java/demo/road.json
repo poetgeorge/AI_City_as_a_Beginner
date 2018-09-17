@@ -7,15 +7,69 @@
 },
 
 {
-"rid" : "1",
-"beginPoint" : "1",
-"endPoint" : "2",
-"distance" : "15.5"
+"rid" : "1",  //道路编号
+"beginPoint" : "1", //起点编号
+"endPoint" : "2", //终点编号
+"distance" : "5.0" //道路长度
 },
 {
 "rid" : "2",
-"beginPoint" : "2",
+"beginPoint" : "0",
 "endPoint" : "3",
-"distance" : "35.5"
-}
+"distance" : "12.0"
+},
+  {
+    "rid" : "3",
+    "beginPoint" : "1",
+    "endPoint" : "3",
+    "distance" : "5.0"
+  },
+  {
+    "rid" : "4",
+    "beginPoint" : "2",
+    "endPoint" : "4",
+    "distance" : "8.5"
+  },
+  {
+    "rid" : "5",
+    "beginPoint" : "3",
+    "endPoint" : "5",
+    "distance" : "13.0"
+  },
+  {
+    "rid" : "6",
+    "beginPoint" : "3",
+    "endPoint" : "8",
+    "distance" : "14.5"
+  },
+  {
+    "rid" : "7",
+    "beginPoint" : "4",
+    "endPoint" : "8",
+    "distance" : "10.0"
+  },
+  {
+    "rid" : "8",
+    "beginPoint" : "5",
+    "endPoint" : "6",
+    "distance" : "7.5"
+  },
+  {
+    "rid" : "9",
+    "beginPoint" : "5",
+    "endPoint" : "8",
+    "distance" : "21.0"
+  },
+  {
+    "rid" : "10",
+    "beginPoint" : "6",
+    "endPoint" : "7",
+    "distance" : "5.0"
+  },
+  {
+    "rid" : "11",
+    "beginPoint" : "7",
+    "endPoint" : "9",
+    "distance" : "8.0"
+  }
 ]

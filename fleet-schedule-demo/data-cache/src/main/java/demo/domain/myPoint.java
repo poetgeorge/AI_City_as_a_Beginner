@@ -23,6 +23,9 @@ public class myPoint {
     @Id
     private Long pid; //地点编号
 
+    private int crdx; //地点x坐标
+    private int crdy; //地点y坐标
+
     private String pName; //地名
 
 }

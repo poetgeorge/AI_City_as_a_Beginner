@@ -49,6 +49,12 @@ public class DataCacheApi {
         return this.vehicleStateService.findByIsEmpty(Boolean.parseBoolean(isEmpty));
     }
 
+    //按是否空闲查询车辆状态
+    @RequestMapping(value = "/vehicleste/{currentRoad}", method = RequestMethod.GET)
+    public List<VehicleState> findByCurrentRoad(@PathVariable String currentRoad){
+        return this.vehicleStateService.findByLocationCurrentRoad(Long.parseLong(currentRoad));
+    }
+
     //按车辆前方地点查询车辆状态
     @RequestMapping(value = "/vehiclestf/{forwardPoint}", method = RequestMethod.GET)
     public List<VehicleState> findByForwardPoint(@PathVariable String forwardPoint){
