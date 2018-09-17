@@ -29,6 +29,8 @@ public interface RoadService {
      */
     List<Road> findAll();
 
+    void deleteByRid(Long rId);
+
     /**
      * 按起点查询
      * @param beginPoint 起点编号

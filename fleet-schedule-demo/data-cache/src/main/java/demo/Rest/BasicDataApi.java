@@ -113,6 +113,14 @@ public class BasicDataApi {
     }
 
     /**
+     *按道路编号删除道路
+     */
+    @RequestMapping(value = "/roadd/{rId}", method = RequestMethod.POST)
+    public void deleteByRid(@PathVariable String rId){
+        this.roadService.deleteByRid(Long.parseLong(rId));
+    }
+
+    /**
      *按起点查询道路
      * @param beginPoint 起点编号
      * @param page
@@ -159,6 +167,22 @@ public class BasicDataApi {
     @RequestMapping(value = "/pointp/{pName}", method = RequestMethod.GET)
     public Page<myPoint> findByPName(@PathVariable String pName, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
         return this.pointService.findByPName(pName, new PageRequest(page,size));
+    }
+
+    /**
+     *按地点编号删除地点
+     */
+    @RequestMapping(value = "/pointd/{pId}", method = RequestMethod.POST)
+    public void deleteByPid(@PathVariable String pId){
+        this.pointService.deleteByPid(Long.parseLong(pId));
+    }
+
+    /**
+     *按车辆编号删除车辆
+     */
+    @RequestMapping(value = "/vehicled/{vId}", method = RequestMethod.POST)
+    public void deleteByVid(@PathVariable String vId){
+        this.vehicleService.deleteByVid(Long.parseLong(vId));
     }
 
     /**

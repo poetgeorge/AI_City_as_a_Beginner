@@ -67,4 +67,12 @@ public class DataCacheApi {
         return this.vehicleStateService.findByLocationBackwardPoint(Long.parseLong(backwardPoint));
     }
 
+    /**
+     *按车辆编号删除车辆状态
+     */
+    @RequestMapping(value = "/vehiclestd/{vId}", method = RequestMethod.POST)
+    public void deleteByVid(@PathVariable String vId){
+        this.vehicleStateService.deleteByVid(Long.parseLong(vId));
+    }
+
 }

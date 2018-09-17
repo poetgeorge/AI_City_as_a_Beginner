@@ -35,4 +35,6 @@ public interface PointService {
      * @return
      */
     Page<myPoint> findByPName(String pName, Pageable pageable);
+
+    void deleteByPid(Long pid);
 }

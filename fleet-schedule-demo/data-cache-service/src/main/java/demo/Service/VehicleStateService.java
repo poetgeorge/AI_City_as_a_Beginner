@@ -16,4 +16,5 @@ public interface VehicleStateService {
     List<VehicleState> findByLocationForwardPoint(Long forwardPoint);
     List<VehicleState> findByLocationBackwardPoint(Long backwardPoint);
 
+    void deleteByVid(Long vId);
 }

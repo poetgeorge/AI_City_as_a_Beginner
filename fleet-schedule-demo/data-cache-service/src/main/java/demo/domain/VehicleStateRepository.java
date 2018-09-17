@@ -15,4 +15,5 @@ public interface VehicleStateRepository extends JpaRepository<VehicleState, Long
     List<VehicleState> findByLocationForwardPoint(@Param("forwardPoint") Long forwardPoint);  //按车辆前方地点查询车辆状态
     List<VehicleState> findByLocationBackwardPoint(@Param("backwardPoint") Long backwardPoint); //按车辆后方地点查询车辆状态
 
+    void deleteByVid(Long vId);
 }

@@ -1,13 +1,13 @@
 [{
-"vid" : "0", //车辆编号
-"license" : "SH001", //车牌号
-"isEmpty" : "true", //是否空闲
+"vid" : "0",
+"license" : "SH001",
+"isEmpty" : "true",
 "location" : {
-  "currentRoad" : "0", //所在道路编号
-"forwardPoint": "1", //车辆前方地点编号
-"backwardPoint" : "0", //车辆后方地点编号
-"forwardDistance" : "5.0"}, //车辆距前方地点距离
-"Destination" : "1" }, //车辆目的地点编号
+  "currentRoad" : "0",
+"forwardPoint": "1",
+"backwardPoint" : "0",
+"forwardDistance" : "5.0"},
+"Destination" : "1" },
   {
     "vid" : "1",
     "license" : "SH002",

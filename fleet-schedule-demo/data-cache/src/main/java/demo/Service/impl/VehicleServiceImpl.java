@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class VehicleStateServiceImpl implements VehicleService {
+public class VehicleServiceImpl implements VehicleService {
 
     private VehicleRepository vehicleRepository;
 
     @Autowired
-    public VehicleStateServiceImpl(VehicleRepository vehicleRepository){
+    public VehicleServiceImpl(VehicleRepository vehicleRepository){
         this.vehicleRepository = vehicleRepository;
     }
 
@@ -33,6 +33,11 @@ public class VehicleStateServiceImpl implements VehicleService {
     @Override
     public List<Vehicle> findAll() {
         return this.vehicleRepository.findAll();
+    }
+
+    @Override
+    public void deleteByVid(Long vId) {
+        this.vehicleRepository.deleteByVid(vId);
     }
 
     @Override

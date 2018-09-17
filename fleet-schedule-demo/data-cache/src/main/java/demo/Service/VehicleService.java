@@ -30,6 +30,8 @@ public interface VehicleService {
      */
     List<Vehicle> findAll();
 
+    void deleteByVid(Long vId);
+
     /**
      * 按车牌号查询
      * @param license 车牌号

@@ -59,6 +59,11 @@ public class VehicleStateServiceImpl implements VehicleStateService {
     }
 
     @Override
+    public void deleteByVid(Long vId) {
+        this.vehicleStateRepository.deleteByVid(vId);
+    }
+
+    @Override
     public List<VehicleState> findAll() {
         return this.vehicleStateRepository.findAll();
     }

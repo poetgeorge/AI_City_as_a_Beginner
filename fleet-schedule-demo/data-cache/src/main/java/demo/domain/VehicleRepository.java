@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
  */
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
-    //Page<Vehicle> findByVid(@Param("vid") Long vid, Pageable pageable);
+    void deleteByVid(Long vId);
 
     /**
      * 按车牌号查询车辆

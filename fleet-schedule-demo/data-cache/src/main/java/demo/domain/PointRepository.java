@@ -17,5 +17,6 @@ public interface PointRepository extends JpaRepository<myPoint, Long> {
      * @return 相应地点
      */
     Page<myPoint> findByPName(@Param("pName") String pName, Pageable pageable);
+    void deleteByPid(@Param("pId") Long pid);
 
 }

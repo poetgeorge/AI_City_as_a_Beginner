@@ -36,6 +36,11 @@ public class RoadServiceImpl implements RoadService {
     }
 
     @Override
+    public void deleteByRid(Long rId) {
+        this.roadRepository.deleteByRid(rId);
+    }
+
+    @Override
     public Page<Road> findByBeginPoint(Integer beginPoint, Pageable pageable) {
         return this.roadRepository.findByBeginPoint(beginPoint, pageable);
     }

@@ -7,10 +7,10 @@
 },
 
 {
-"rid" : "1",  //道路编号
-"beginPoint" : "1", //起点编号
-"endPoint" : "2", //终点编号
-"distance" : "5.0" //道路长度
+"rid" : "1",  
+"beginPoint" : "1", 
+"endPoint" : "2", 
+"distance" : "5.0" 
 },
 {
 "rid" : "2",

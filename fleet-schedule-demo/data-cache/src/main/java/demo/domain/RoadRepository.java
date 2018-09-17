@@ -11,6 +11,8 @@ import org.springframework.data.repository.query.Param;
  */
 public interface RoadRepository extends JpaRepository<Road, Long> {
 
+    void deleteByRid(@Param("rId") Long rId);
+
     /**
      * 按起点查询道路
      * @param beginPoint 起点编号

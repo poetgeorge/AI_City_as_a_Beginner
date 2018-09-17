@@ -39,4 +39,9 @@ public class PointServiceImpl implements PointService {
     public Page<myPoint> findByPName(String pName, Pageable pageable) {
         return this.pointRepository.findByPName(pName, pageable);
     }
+
+    @Override
+    public void deleteByPid(Long pid) {
+        this.pointRepository.deleteByPid(pid);
+    }
 }
