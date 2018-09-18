@@ -91,7 +91,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         int vsp=0;
 
            //选择车辆
-        for(i=0;i<vehicles.length;i++){
+        for(i=0;i<vehicles.length&&vehicles[i].isEmpty()==true;i++){
            Long p = vehicles[i].getLocation().getForwardPoint();
            if(g.getAlldist()[Math.toIntExact(p)][startPoint]<vd){
                vd = g.getAlldist()[Math.toIntExact(p)][startPoint];

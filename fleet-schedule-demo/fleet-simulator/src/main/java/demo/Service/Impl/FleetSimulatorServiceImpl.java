@@ -1,16 +1,14 @@
 package demo.Service.Impl;
 
-import demo.Service.FleetLocationService;
+import demo.Service.FleetSimulateService;
 import demo.domain.Graph;
 import demo.domain.Location;
 import demo.domain.VehicleState;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-@Service
-public class FleetLocationImpl implements FleetLocationService {
+public class FleetSimulatorServiceImpl implements FleetSimulateService {
 
     private RestTemplate restTemplate = new RestTemplate();
 
@@ -22,23 +20,26 @@ public class FleetLocationImpl implements FleetLocationService {
     VehicleState vehicle2 = new VehicleState(2L, "SH003", true, locaiton2, 5L);
     Location locaiton3 = new Location(9L, 8L, 5L, 10.5);
     VehicleState vehicle3 = new VehicleState(3L, "SH004", true, locaiton3, 8L);
+    Location[] locations ={locaiton0, locaiton1, locaiton2, locaiton3};
     VehicleState[] fleet = {vehicle0, vehicle1, vehicle2, vehicle3};
 
     Graph graph;
 
-    public FleetLocationImpl(){
+    public FleetSimulatorServiceImpl(){
 
     }
 
     @Override
-    public void getpath(Long vid, List<Integer> path) {
-        int myvid = Math.toIntExact(vid);
-        this.fleet[myvid].setEmpty(false);
-
-    }
-
-    @Override
-    public void uploadstate() {
+    public void fleetSimulator(Long vid, List<Integer> path) {
+        int id = Math.toIntExact(vid);
+        fleet[id].setEmpty(false);
+        int l = path.size()-1;
+        Long[] myPath = path.toArray(new Long[l]);
+        fleet[id].setDestination(myPath[l]);
+        if(locations[id].getForwardPoint()!=myPath[0]){
+            locations[id].setBackwardPoint(locations[id].getForwardPoint());
+            locations[id].setForwardPoint(myPath[0]);
+        }
 
     }
 }
