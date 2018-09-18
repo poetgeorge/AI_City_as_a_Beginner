@@ -7,6 +7,7 @@
         <module>data-cache</module>
         <module>data-cache-service</module>
         <module>schedule-service</module>
+        <module>fleet-simulator</module>
     </modules>
 
     <parent>

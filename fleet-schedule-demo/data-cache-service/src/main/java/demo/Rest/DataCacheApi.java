@@ -1,5 +1,7 @@
 package demo.Rest;
 
+//数据缓存模块对外接口
+
 import demo.Service.VehicleStateService;
 import demo.domain.VehicleState;
 import org.springframework.beans.factory.annotation.Autowired;

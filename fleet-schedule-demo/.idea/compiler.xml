@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="basic-data-service" />
         <module name="data-cache-service" />
+        <module name="fleet-simulator" />
         <module name="schedule-service" />
       </profile>
     </annotationProcessing>

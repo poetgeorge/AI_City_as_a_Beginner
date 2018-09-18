@@ -50,7 +50,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     //调度方法，返回车牌号，向车辆发送命令，记录车辆行为
     @Override
-    public String schedule(int startPoint, int endPoint) {
+    public MyResponse schedule(int startPoint, int endPoint) {
         String license = null; //车牌号
         Long vid = 1L;  //车辆ID
         double distance = 0.0;  //车辆总行驶距离
@@ -128,6 +128,7 @@ public class ScheduleServiceImpl implements ScheduleService {
             if(i==startPoint) break;
             path2.add(g.getAllpath()[startPoint][i]);
             i = g.getAllpath()[startPoint][i];
+
         }
         Collections.reverse(path2);
 
@@ -147,6 +148,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         thebehavior.add(vehicleBehavior);
         this.behaviorRepository.save(thebehavior);
 
-        return license;
+        MyResponse myResponse = new MyResponse(vid, license, path);
+        return myResponse;
     }
 }

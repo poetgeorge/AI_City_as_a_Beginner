@@ -1,0 +1,42 @@
+[{
+"vid" : "0",
+"license" : "SH001",
+"isEmpty" : "true",
+"location" : {
+  "currentRoad" : "0",
+"forwardPoint": "1",
+"backwardPoint" : "0",
+"forwardDistance" : "5.0"},
+"Destination" : "1" },
+  {
+    "vid" : "1",
+    "license" : "SH002",
+    "isEmpty" : "true",
+    "location" : {
+      "currentRoad" : "1",
+      "forwardPoint": "2",
+      "backwardPoint" : "1",
+      "forwardDistance" : "1.5"},
+    "Destination" : "2"},
+  {
+    "vid" : "2",
+    "license" : "SH003",
+    "isEmpty" : "true",
+    "location" : {
+      "currentRoad" : "6",
+      "forwardPoint": "5",
+      "backwardPoint" : "3",
+      "forwardDistance" : "6.0"},
+    "Destination" : "5"},
+  {
+    "vid" : "3",
+    "license" : "SH004",
+    "isEmpty" : "true",
+    "location" : {
+      "currentRoad" : "9",
+      "forwardPoint": "8",
+      "backwardPoint" : "5",
+      "forwardDistance" : "10.5"},
+    "Destination" : "8"}
+
+]
