@@ -1,0 +1,8 @@
+server:
+  port: 9007
+spring:
+  application:
+    name: fleet-simulator
+
+data:
+  cache: http://localhost:9005

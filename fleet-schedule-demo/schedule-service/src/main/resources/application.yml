@@ -3,6 +3,19 @@ server:
 spring:
   application:
     name: schedule-service
+#  datasource:
+#         #数据库相关的配置url -SSL连接设置为false
+#    url: jdbc:mysql://localhost:3306/fleet-log?useSSL=false
+#         #配置用户名
+#    username: root
+#         #配置密码
+#    password: root
+#    tomcat:
+#      max-active: 100
+#      max-idle: 200
+#      initialSize: 20
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5Dialect
 
 basic:
   data: http://localhost:9000
@@ -10,6 +23,10 @@ basic:
 
 data:
   cache: http://localhost:9005
+---
+
+fleet:
+  simulator: http://localhost:9007
 ---
 
 ribbon:
@@ -21,3 +38,5 @@ data-cache:
 basic-data:
   ribbon:
     listOfServers: localhost:9000
+
+

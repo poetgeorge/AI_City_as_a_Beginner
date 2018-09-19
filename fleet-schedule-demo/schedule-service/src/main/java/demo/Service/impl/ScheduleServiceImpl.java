@@ -4,14 +4,20 @@ package demo.Service.impl;
 
 import demo.Service.ScheduleService;
 import demo.domain.*;
+//import net.sf.sprockets.net.HttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+//import sun.net.www.http.HttpClient;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import org.apache.http.client.HttpClient;
 
 
 @Service
@@ -21,13 +27,18 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     private BehaviorRepository behaviorRepository;
 
-    private RestTemplate restTemplate = new RestTemplate();
+    HttpClient httpClient = HttpClientBuilder.create().build();
+    ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
+    private RestTemplate restTemplate = new RestTemplate(requestFactory);
 
     @Value("${data.cache}")
     private String dataCache;
 
     @Value("${basic.data}")
     private String basicData;
+
+    @Value("${fleet.simulator}")
+    private String fleetSimulator;
 
 
     @Autowired
@@ -136,8 +147,12 @@ public class ScheduleServiceImpl implements ScheduleService {
 
         /*
         向车辆发送命令部分未完成
-         */
 
+        ScheduleCommand scheduleCommand = new ScheduleCommand(vid, path, distance);
+        List<ScheduleCommand> scheduleCommands = new ArrayList<>();
+        scheduleCommands.add(scheduleCommand);
+        this.restTemplate.postForObject("http://localhost:9007/simulate", scheduleCommands, ScheduleCommand[].class);
+        */
         //记录车辆行为
         VehicleBehavior vehicleBehavior = new VehicleBehavior();
         vehicleBehavior.setVid(Math.toIntExact(vid));

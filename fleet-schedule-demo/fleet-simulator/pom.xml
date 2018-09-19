@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>fleet-simulator</artifactId>
+    <name>fleet-simulator</name>
+    <description>vehicles simulator for test</description>
+
+
+    <properties>
+        <start-class>demo.FleetSimulatorApplication</start-class>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -65,17 +72,22 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.6</version>
+        </dependency>
+        <dependency>
             <groupId>edu.tongji</groupId>
             <artifactId>basic-data-service</artifactId>
             <version>1.0.0.BUILD-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>edu.tongji</groupId>
-            <artifactId>schedule-service</artifactId>
-            <version>1.0.0.BUILD-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>edu.tongji</groupId>-->
+            <!--<artifactId>schedule-service</artifactId>-->
+            <!--<version>1.0.0.BUILD-SNAPSHOT</version>-->
+            <!--<scope>compile</scope>-->
+        <!--</dependency>-->
 
     </dependencies>
 
