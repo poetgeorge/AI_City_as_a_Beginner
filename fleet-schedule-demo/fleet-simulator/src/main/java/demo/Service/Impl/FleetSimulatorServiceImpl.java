@@ -72,7 +72,7 @@ public class FleetSimulatorServiceImpl implements FleetSimulateService {
     @Override
     public void fleetSimulator(Long vid, List<Integer> path, double distance) {
         int id = Math.toIntExact(vid);
-        double time = Math.ceil(distance);
+        double time = Math.ceil(distance); //默认车辆恒速。时速60公里
         this.fleet[id].setEmpty(false);  //将车辆设为忙碌
         int l = path.size()-1;
         Long[] myPath = path.toArray(new Long[l]);
